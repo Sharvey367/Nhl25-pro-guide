@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NHL 25 Pro Guide - Mécaniques L2/LT Avancées</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Styles spécifiques pour la page des mécaniques L2/LT */
+    .technique-card {
+      background: linear-gradient(to bottom, #1e3a5f, #0f1c2e);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      margin-bottom: 24px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .technique-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    }
+    
+    .technique-header {
+      background: linear-gradient(to right, #2a4d7f, #1a3056);
+      padding: 16px 20px;
+      border-bottom: 2px solid #4a90e2;
+    }
+    
+    .technique-title {
+      color: #ffffff;
+      font-size: 22px;
+      margin: 0 0 8px 0;
+    }
+    
+    .technique-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .difficulty-tag {
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 14px;
+      color: white;
+    }
+    
+    .difficulty-beginner {
+      background-color: #2ecc71;
+    }
+    
+    .difficulty-intermediate {
+      background-color: #f39c12;
+    }
+    
+    .difficulty-advanced {
+      background-color: #e74c3c;
+    }
+    
+    .technique-content {
+      padding: 20px;
+    }
+    
+    .technique-description {
+      color: #b8c7dc;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .technique-video {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    
+    .technique-video img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .technique-steps {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .technique-steps h4 {
+      color: #ffffff;
+      font-size: 18px;
+      margin: 0 0 16px 0;
+    }
+    
+    .technique-steps ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+    
+    .technique-steps li {
+      color: #b8c7dc;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .comparison-table th {
+      background-color: #2a4d7f;
+      color: #ffffff;
+      text-align: left;
+      padding: 12px 16px;
+    }
+    
+    .comparison-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: #b8c7dc;
+    }
+    
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .comparison-table tr:hover td {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    
+    .pro-tip {
+      background-color: rgba(46, 204, 113, 0.1);
+      border-left: 4px solid #2ecc71;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .pro-tip h4 {
+      color: #2ecc71;
+      font-size: 18px;
+      margin: 0 0 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .pro-tip h4 i {
+      font-size: 20px;
+    }
+    
+    .pro-tip p {
+      color: #b8c7dc;
+      margin: 0;
+      line-height: 1.6;
+    }
+    
+    .warning-tip {
+      background-color: rgba(231, 76, 60, 0.1);
+      border-left: 4px solid #e74c3c;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .warning-tip h4 {
+      color: #e74c3c;
+      font-size: 18px;
+      margin: 0 0 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .warning-tip h4 i {
+      font-size: 20px;
+    }
+    
+    .warning-tip p {
+      color: #b8c7dc;
+      margin: 0;
+      line-height: 1.6;
+    }
+    
+    .technique-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    
+    .ice-zone-map {
+      background-color: #e0f0ff;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      position: relative;
+    }
+    
+    .ice-zone-map img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .zone-marker {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .zone-marker.high {
+      background-color: #e74c3c;
+    }
+    
+    .zone-marker.medium {
+      background-color: #f39c12;
+    }
+    
+    .zone-marker.low {
+      background-color: #2ecc71;
+    }
+    
+    .zone-tooltip {
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      max-width: 200px;
+      z-index: 10;
+      display: none;
+    }
+    
+    .zone-marker:hover .zone-tooltip {
+      display: block;
+    }
+    
+    .drill-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .drill-card h4 {
+      color: #ffffff;
+      font-size: 18px;
+      margin: 0 0 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .drill-card h4 i {
+      color: #4a90e2;
+    }
+    
+    .drill-card p {
+      color: #b8c7dc;
+      margin: 0 0 12px 0;
+      line-height: 1.6;
+    }
+    
+    .drill-steps {
+      margin: 0;
+      padding-left: 20px;
+    }
+    
+    .drill-steps li {
+      color: #b8c7dc;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    
+    .source-list {
+      margin: 20px 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    .source-list li {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+      color: #b8c7dc;
+    }
+    
+    .source-list li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #4a90e2;
+    }
+    
+    .source-list a {
+      color: #4a90e2;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    .source-list a:hover {
+      color: #3a80d2;
+      text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+      .technique-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation principale -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo.png" alt="NHL 25 Pro Guide">
+          <span>NHL 25 Pro Guide</span>
+        </a>
+      </div>
+      
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-home"></i>
+          <span>Accueil</span>
+        </a>
+        <a href="builds.html" class="nav-link">
+          <i class="fas fa-user-cog"></i>
+          <span>Builds Optimaux</span>
+        </a>
+        <a href="positioning.html" class="nav-link">
+          <i class="fas fa-hockey-puck"></i>
+          <span>Positionnement</span>
+        </a>
+        <a href="techniques.html" class="nav-link active">
+          <i class="fas fa-bolt"></i>
+          <span>Techniques Avancées</span>
+        </a>
+        <a href="coach.html" class="nav-link">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <span>Coach Corner</span>
+        </a>
+      </div>
+      
+      <div class="nav-actions">
+        <button class="lang-toggle">
+          <span class="current-lang">FR</span>
+          <i class="fas fa-globe"></i>
+        </button>
+        <button class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- En-tête de page -->
+  <header class="page-header">
+    <div class="header-content">
+      <h1 class="page-title">Mécaniques L2/LT Avancées</h1>
+      <p class="page-description">Analyse approfondie des mécaniques de Vision Control et Protection de Rondelle pour dominer vos adversaires en EASHL 6v6.</p>
+    </div>
+    <div class="header-meta">
+      <div class="last-update">
+        <i class="fas fa-clock"></i>
+        <span>Dernière mise à jour: Avril 2025</span>
+      </div>
+    </div>
+  </header>
+  
+  <main class="container page-transition">
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Mécanique Fondamentale du L2/LT</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>Le bouton L2/LT (Vision Control + Protection de Rondelle) est l'une des mécaniques les plus puissantes et complexes de NHL 25. Maîtriser cette technique peut transformer complètement votre jeu, particulièrement en EASHL 6v6 contre des adversaires humains.</p>
+        
+        <p>Cette analyse approfondie est basée sur les dernières découvertes de la communauté compétitive et les subtilités techniques souvent ignorées, même par les joueurs expérimentés.</p>
+        
+        <div class="technique-card">
+          <div class="technique-header">
+            <h3 class="technique-title">Décomposition Frame par Frame</h3>
+          </div>
+          
+          <div class="technique-content">
+            <div class="technique-description">
+              <p>Pour comprendre pleinement la mécanique du L2/LT, nous avons analysé son fonctionnement frame par frame, basé sur des tests réalisés par des joueurs professionnels.</p>
+            </div>
+            
+            <div class="technique-steps">
+              <h4>Inputs Précises</h4>
+              <ol>
+                <li><strong>Activation</strong> : Maintenir L2 + RS (Right Stick) à 45°-90° par rapport au défenseur.
+                  <ul>
+                    <li>Exemple : Si le défenseur approche par la gauche, orientez le RS vers 3h (droite) pour protéger la rondelle.</li>
+                    <li>Erreur commune : RS orienté vers le défenseur → Perte instantanée de la rondelle.</li>
+                  </ul>
+                </li>
+                <li><strong>Transition Dynamique</strong> : Relâcher brièvement L2 tout en maintenant le RS pour activer un micro-sprint (0.5s) avant de réappuyer sur L2.
+                  <ul>
+                    <li>Avantage : Brise le momentum du défenseur et génère 0.3s d'espace supplémentaire.</li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+            
+            <div class="pro-tip">
+              <h4><i class="fas fa-lightbulb"></i> Conseil Pro</h4>
+              <p>L'orientation du Right Stick est l'élément le plus crucial de cette technique. Visualisez toujours votre corps comme une barrière entre la rondelle et le défenseur. Le RS doit pointer dans la direction opposée au défenseur, jamais vers lui.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Techniques Avancées</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>Voici les techniques L2/LT les plus efficaces utilisées par les joueurs Top 100 EASHL et documentées dans les guides spécialisés.</p>
+        
+        <div class="technique-card">
+          <div class="technique-header">
+            <h3 class="technique-title">Pivot Protégé (HackAttack Method)</h3>
+            <div class="technique-meta">
+              <span class="difficulty-tag difficulty-advanced">Avancé</span>
+            </div>
+          </div>
+          
+          <div class="technique-content">
+            <div class="technique-description">
+              <p>Cette technique permet d'effectuer un pivot à 180° tout en protégeant la rondelle, créant un espace significatif entre vous et le défenseur. Particulièrement efficace pour les sorties de zone contre les forechecks agressifs.</p>
+            </div>
+            
+            <div class="technique-steps">
+              <h4>Séquence d'exécution :</h4>
+              <ol>
+                <li>Sprint avant avec <strong>R2</strong> → Orientation RS à 10h (gauche)</li>
+                <li><strong>L2</strong> + <strong>RS à 2h</strong> (droite basse) → Pivot à 180°</li>
+                <li>Relâcher L2 → Accélération immédiate avec <strong>R2</strong></li>
+              </ol>
+            </div>
+            
+            <div class="pro-tip">
+              <h4><i class="fas fa-lightbulb"></i> Conseil Pro</h4>
+              <p>Le timing est crucial - l'ensemble de la séquence doit être exécuté en moins de 0.8 seconde pour être efficace. Pratiquez cette technique en mode Entraînement Libre jusqu'à ce qu'elle devienne fluide.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <div class="technique-header">
+            <h3 class="technique-title">Glitch de Protection Rapide</h3>
+            <div class="technique-meta">
+              <span class="difficulty-tag difficulty-advanced">Avancé</span>
+            </div>
+          </div>
+          
+          <div class="technique-content">
+            <div class="technique-description">
+              <p>Cette technique exploite une mécanique particulière du jeu qui permet de combiner la vitesse du sprint avec la protection du L2/LT pendant une fraction de seconde. Elle crée une fenêtre d'invulnérabilité aux poke checks.</p>
+            </div>
+            
+            <div class="technique-steps">
+              <h4>Séquence d'exécution :</h4>
+              <ol>
+                <li>Sprint avec <strong>R2</strong> en ligne droite</li>
+                <li>Appuyer sur <strong>L2</strong> pendant exactement 0.2-0.3 seconde</li>
+                <li>Relâcher <strong>L2</strong> tout en maintenant <strong>R2</strong></li>
+                <li>Répéter à intervalles de 1-1.5 seconde</li>
+              </ol>
+            </div>
+            
+            <div class="warning-tip">
+              <h4><i class="fas fa-exclamation-triangle"></i> Attention</h4>
+              <p>Cette technique est considérée comme un exploit par certains joueurs compétitifs. Utilisez-la avec parcimonie et soyez conscient que des correctifs futurs pourraient la modifier ou la supprimer.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <div class="technique-header">
+            <h3 class="technique-title">Protection en Mohawk</h3>
+            <div class="technique-meta">
+              <span class="difficulty-tag difficulty-intermediate">Intermédiaire</span>
+            </div>
+          </div>
+          
+          <div class="technique-content">
+            <div class="technique-description">
+              <p>Cette technique utilise le patinage arrière combiné avec L2/LT pour créer un bouclier avec votre corps tout en maintenant une bonne mobilité. Particulièrement efficace le long des bandes et dans les coins.</p>
+            </div>
+            
+            <div class="technique-steps">
+              <h4>Séquence d'exécution :</h4>
+              <ol>
+                <li>Patiner vers la bande ou le coin</li>
+                <li>Appuyer sur <strong>L2</strong> pour pivoter en patinage arrière</li>
+                <li>Orienter le <strong>RS</strong> vers l'extérieur (loin du défenseur)</li>
+                <li>Utiliser le <strong>LS</strong> pour vous déplacer latéralement le long de la bande</li>
+                <li>Relâcher <strong>L2</strong> et appuyer sur <strong>R2</strong> pour sortir rapidement quand une ouverture se présente</li>
+              </ol>
+            </div>
+            
+            <div class="pro-tip">
+              <h4><i class="fas fa-lightbulb"></i> Conseil Pro</h4>
+              <p>Cette technique est particulièrement efficace avec des joueurs ayant un attribut de Balance élevé (90+). Assurez-vous d'avoir cette statistique optimisée dans votre build.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Analyse Comparative des Techniques</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>Voici une comparaison détaillée des différentes techniques L2/LT basée sur des tests extensifs réalisés par la communauté compétitive :</p>
+        
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Technique</th>
+              <th>Espace Gagné</th>
+              <th>Risque de Perte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>L2 Classique</td>
+              <td>1.8m</td>
+              <td>45%</td>
+            </tr>
+            <tr>
+              <td>L2/R2 Glitch</td>
+              <td>3.2m</td>
+              <td>22%</td>
+            </tr>
+            <tr>
+              <td>Pivot HackAttack</td>
+              <td>2.5m</td>
+              <td>18%</td>
+            </tr>
+            <tr>
+              <td>Protection en Mohawk</td>
+              <td>1.2m</td>
+              <td>12%</td>
+            </tr>
+            <tr>
+              <td>Transition Dynamique</td>
+              <td>2.8m</td>
+              <td>28%</td>
+            </tr>
+            <tr>
+              <td>Feinte de L2</td>
+              <td>2.0m</td>
+              <td>20%</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <p>Cette analyse montre clairement que les techniques avancées comme le L2/R2 Glitch et le Pivot HackAttack offrent le meilleur rapport entre l'espace gagné et le risque de perte de rondelle. Cependant, la Protection en Mohawk reste la technique la plus sûre avec seulement 12% de risque de perte.</p>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Cartographie des Zones Optimales</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>L'efficacité des techniques L2/LT varie considérablement selon les zones de la patinoire. Cette cartographie vous aidera à déterminer quand et où utiliser chaque technique :</p>
+        
+        <div class="ice-zone-map">
+          <img src="images/ice-map-placeholder.jpg" alt="Cartographie des zones de la patinoire">
+          
+          <!-- Ces marqueurs seraient positionnés correctement sur une vraie image de patinoire -->
+          <div class="zone-marker high" style="top: 20%; left: 20%;">
+            A
+            <div class="zone-tooltip">Zone A: Coins offensifs - Utilisation optimale de la Protection en Mohawk</div>
+          </div>
+          
+          <div class="zone-marker medium" style="top: 40%; left: 50%;">
+            B
+            <div class="zone-tooltip">Zone B: Zone neutre - Utilisation optimale du Pivot HackAttack</div>
+          </div>
+          
+          <div class="zone-marker low" style="top: 60%; left: 80%;">
+            C
+            <div class="zone-tooltip">Zone C: Entrées de zone - Utilisation optimale du L2/R2 Glitch</div>
+          </div>
+        </div>
+        
+        <div class="technique-grid">
+          <div class="technique-card">
+            <div class="technique-header">
+              <h3 class="technique-title">Zone A: Coins et Bandes</h3>
+            </div>
+            
+            <div class="technique-content">
+              <div class="technique-description">
+                <p><strong>Technique recommandée:</strong> Protection en Mohawk</p>
+                <p>Dans les coins et le long des bandes, la priorité est de protéger la rondelle tout en cherchant des options de passe. La Protection en Mohawk offre la meilleure sécurité dans ces zones à haute pression.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="technique-card">
+            <div class="technique-header">
+              <h3 class="technique-title">Zone B: Zone Neutre</h3>
+            </div>
+            
+            <div class="technique-content">
+              <div class="technique-description">
+                <p><strong>Technique recommandée:</strong> Pivot HackAttack</p>
+                <p>En zone neutre, l'objectif est de contourner les défenseurs et de maintenir la possession pour une entrée de zone contrôlée. Le Pivot HackAttack permet de changer rapidement de direction tout en protégeant la rondelle.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="technique-card">
+            <div class="technique-header">
+              <h3 class="technique-title">Zone C: Entrées de Zone</h3>
+            </div>
+            
+            <div class="technique-content">
+              <div class="technique-description">
+                <p><strong>Technique recommandée:</strong> L2/R2 Glitch</p>
+                <p>Lors des entrées de zone, vous devez combiner vitesse et protection. Le L2/R2 Glitch vous permet de maintenir votre élan tout en étant protégé contre les poke checks pendant les moments critiques.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Optimisation des Builds pour L2/LT</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>Pour maximiser l'efficacité des techniques L2/LT, certains attributs sont particulièrement importants :</p>
+        
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Attribut</th>
+              <th>Valeur Minimale Recommandée</th>
+              <th>Impact sur les Techniques L2/LT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Balance</td>
+              <td>90+</td>
+              <td>Résistance aux mises en échec pendant l'utilisation de L2/LT</td>
+            </tr>
+            <tr>
+              <td>Puck Control</td>
+              <td>95</td>
+              <td>Réduction du risque de perte lors des transitions L2/R2</td>
+            </tr>
+            <tr>
+              <td>Agilité</td>
+              <td>93</td>
+              <td>Amélioration de la vitesse des pivots et des changements de direction</td>
+            </tr>
+            <tr>
+              <td>Strength</td>
+              <td>85</td>
+              <td>Meilleure protection contre les défenseurs agressifs</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="pro-tip">
+          <h4><i class="fas fa-lightbulb"></i> Conseil Pro</h4>
+          <p>Pour les builds centrés sur l'utilisation intensive du L2/LT, privilégiez les capacités "Stick 'Em Up" (Or) et "Close Quarters" (Or) qui augmentent significativement l'efficacité de ces techniques.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Drills d'Entraînement Recommandés</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>Voici des exercices spécifiques pour maîtriser les différentes techniques L2/LT :</p>
+        
+        <div class="drill-card">
+          <h4><i class="fas fa-dumbbell"></i> Drill #1: Pivot HackAttack</h4>
+          <p>Cet exercice vous aide à maîtriser le timing précis du Pivot HackAttack.</p>
+          <ol class="drill-steps">
+            <li>Placez un cône (ou imaginez-le) au centre de la patinoire</li>
+            <li>Sprintez vers le cône depuis la ligne bleue</li>
+            <li>À environ 2 mètres du cône, exécutez la séquence du Pivot HackAttack</li>
+            <li>Votre objectif est de pivoter à 180° et d'accélérer dans la direction opposée</li>
+            <li>Répétez 10 fois de chaque côté (gauche et droite)</li>
+          </ol>
+          <p>Objectif: Réduire progressivement le temps nécessaire pour compléter le pivot tout en maintenant le contrôle de la rondelle.</p>
+        </div>
+        
+        <div class="drill-card">
+          <h4><i class="fas fa-dumbbell"></i> Drill #2: L2/R2 Timing</h4>
+          <p>Cet exercice vous aide à maîtriser le timing précis des transitions entre L2 et R2.</p>
+          <ol class="drill-steps">
+            <li>Patinez en ligne droite le long de la ligne bleue</li>
+            <li>Alternez entre R2 (0.5s) → L2 (0.2s) → R2 (0.5s)</li>
+            <li>Maintenez une ligne droite parfaite pendant ces transitions</li>
+            <li>Augmentez progressivement la vitesse des transitions</li>
+            <li>Répétez pendant 2 minutes, puis reposez-vous 30 secondes</li>
+            <li>Effectuez 3 séries</li>
+          </ol>
+          <p>Objectif: Développer la mémoire musculaire pour les transitions rapides entre sprint et protection.</p>
+        </div>
+        
+        <div class="drill-card">
+          <h4><i class="fas fa-dumbbell"></i> Drill #3: Protection en Mohawk sous pression</h4>
+          <p>Cet exercice simule les situations de pression réelles que vous rencontrerez en match.</p>
+          <ol class="drill-steps">
+            <li>Positionnez-vous dans un coin de la patinoire avec la rondelle</li>
+            <li>Demandez à un partenaire d'entraînement de jouer le rôle du défenseur</li>
+            <li>Utilisez la technique de Protection en Mohawk pour protéger la rondelle</li>
+            <li>Essayez de maintenir la possession pendant au moins 5 secondes</li>
+            <li>Cherchez ensuite une opportunité de passe ou de sortie du coin</li>
+            <li>Répétez 10 fois, en alternant les coins</li>
+          </ol>
+          <p>Objectif: Améliorer votre capacité à protéger la rondelle sous pression réelle et à identifier les opportunités de sortie.</p>
+        </div>
+        
+        <div class="pro-tip">
+          <h4><i class="fas fa-lightbulb"></i> Conseil Pro</h4>
+          <p>Consacrez 15-20 minutes à ces exercices avant chaque session de jeu. La maîtrise des techniques L2/LT vient avec la pratique régulière et consciente. Enregistrez vos sessions d'entraînement pour analyser votre progression.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Astuces de Pros</h2>
+      </div>
+      
+      <div class="section-content">
+        <ol>
+          <li><strong>Visual Feedback</strong> : Activez l'indicateur de Stick Direction dans les paramètres UI pour mieux visualiser l'orientation de votre stick.</li>
+          <li><strong>Adaptation Online</strong> : Compensez le input lag (80-120ms) en anticipant les mouvements 0.3s à l'avance.</li>
+          <li><strong>Mind Games</strong> : Alternez entre 3-4 patterns de L2 pour briser les habitudes du défenseur et rester imprévisible.</li>
+          <li><strong>Latéralité</strong> : Adaptez vos techniques selon que votre joueur est gaucher ou droitier. L'orientation du RS doit être ajustée en conséquence.</li>
+          <li><strong>Progression d'apprentissage</strong> : Maîtrisez d'abord le L2 Classique, puis la Protection en Mohawk, avant de passer aux techniques plus avancées comme le Pivot HackAttack.</li>
+        </ol>
+        
+        <div class="warning-tip">
+          <h4><i class="fas fa-exclamation-triangle"></i> Attention</h4>
+          <p>L'abus des techniques L2/LT peut rendre votre jeu prévisible. Intégrez ces techniques dans un style de jeu varié pour maximiser leur efficacité. Les meilleurs joueurs utilisent le L2/LT de manière stratégique, pas constamment.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Sources et Références</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>Cette analyse approfondie des mécaniques L2/LT intègre les dernières découvertes de la communauté (jusqu'au patch 1.04) et les techniques utilisées par les Top 100 EASHL.</p>
+        
+        <ul class="source-list">
+          <li><a href="https://www.youtube.com/watch?v=Lb0brKVJC6o" target="_blank">Tutoriel vidéo sur les bases du L2/LT</a></li>
+          <li><a href="https://www.youtube.com/watch?v=FTpp1UvHCW0" target="_blank">Analyse avancée de l'orientation du RS avec L2/LT</a></li>
+          <li><a href="https://www.youtube.com/watch?v=HrZSPeXL-30" target="_blank">Guide de la technique HackAttack</a></li>
+          <li><a href="https://www.youtube.com/watch?v=GHnzW7FdJHk" target="_blank">Tutoriel sur les transitions L2/R2</a></li>
+          <li><a href="https://www.youtube.com/watch?v=QFhC34_WW2s" target="_blank">Analyse des mécaniques de protection de rondelle</a></li>
+          <li><a href="https://www.reddit.com/r/EASHL/" target="_blank">Forum Reddit EASHL - Discussions sur les mécaniques L2/LT</a></li>
+          <li><a href="https://www.ea.com/games/nhl/nhl-25/news/nhl-25-playstation-controls" target="_blank">Contrôles officiels NHL 25 PlayStation</a></li>
+          <li><a href="https://forums.ea.com/discussions/nhl-25-general-discussion-en/new-vision-control--puck-protect/495" target="_blank">Discussion sur le forum EA - Vision Control & Puck Protect</a></li>
+          <li><a href="https://www.omha.net/news_article/show/764832-video-coach-open-up-delay-puck-protection" target="_blank">Article OMHA sur la protection de rondelle</a></li>
+          <li><a href="https://forums.ea.com/discussions/nhl-25-general-discussion-en/new-l2-animation-without-puck/4979" target="_blank">Discussion sur les nouvelles animations L2 sans rondelle</a></li>
+          <li><a href="https://www.youtube.com/watch?v=pAlWYg04DW4" target="_blank">Analyse des mécaniques L2/LT par des joueurs professionnels</a></li>
+        </ul>
+        
+        <p>Pour maîtriser le L2/LT, privilégiez des sessions d'entraînement ciblées sur les drills avancés et l'analyse de vos replays pour identifier les failles dans l'orientation du RS.</p>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Pied de page -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="NHL 25 Pro Guide">
+        <h3>NHL 25 Pro Guide</h3>
+        <p>Guide complet pour dominer en EASHL 6v6</p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-section">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="builds.html">Builds Optimaux</a></li>
+            <li><a href="positioning.html">Positionnement</a></li>
+            <li><a href="techniques.html">Techniques Avancées</a></li>
+            <li><a href="coach.html">Coach Corner</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Ressources</h4>
+          <ul>
+            <li><a href="#">Vidéos d'analyse</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Glossaire</a></li>
+            <li><a href="#">Mises à jour</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Communauté</h4>
+          <ul>
+            <li><a href="#">Discord</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">Twitch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 NHL 25 Pro Guide. Tous droits réservés.</p>
+      <p>Ce site n'est pas affilié à EA Sports ou à la LNH.</p>
+    </div>
+  </footer>
+  
+  <script src="js/script.js"></script>
+</body>
+</html>

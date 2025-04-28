@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NHL 25 Pro Guide - Accueil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Styles intégrés pour éviter les problèmes de chargement */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #121f2e;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    a {
+      color: #4a90e2;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #3a80d2;
+    }
+
+    button {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: #4a90e2;
+      border: none;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #3a80d2;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      border: 1px solid #4a90e2;
+      color: #4a90e2;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(74, 144, 226, 0.1);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .mb-1 {
+      margin-bottom: 8px;
+    }
+
+    .mb-2 {
+      margin-bottom: 16px;
+    }
+
+    .mb-3 {
+      margin-bottom: 24px;
+    }
+
+    .mb-4 {
+      margin-bottom: 32px;
+    }
+
+    .mt-1 {
+      margin-top: 8px;
+    }
+
+    .mt-2 {
+      margin-top: 16px;
+    }
+
+    .mt-3 {
+      margin-top: 24px;
+    }
+
+    .mt-4 {
+      margin-top: 32px;
+    }
+
+    /* Animation pour les transitions de page */
+    .page-transition {
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Navigation principale */
+    .main-nav {
+      background-color: #0f1c2e;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 12px;
+    }
+
+    .logo span {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 16px;
+      color: #b8c7dc;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-link i {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .nav-link:hover {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link.active {
+      color: #ffffff;
+      background-color: #2a4d7f;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 16px;
+    }
+
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: transparent;
+      border: 1px solid #4a90e2;
+      color: #4a90e2;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-toggle:hover {
+      background-color: rgba(74, 144, 226, 0.1);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: none;
+      background-color: #0f1c2e;
+      padding: 20px;
+    }
+
+    /* En-tête de page */
+    .page-header {
+      background: linear-gradient(to right, #2a4d7f, #1a3056);
+      padding: 40px 20px;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #4a90e2;
+    }
+
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .page-title {
+      color: #ffffff;
+      font-size: 36px;
+      margin: 0 0 16px 0;
+      font-weight: 700;
+    }
+
+    .page-description {
+      color: #b8c7dc;
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .header-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 800px;
+      margin: 24px auto 0;
+    }
+
+    .last-update {
+      color: #b8c7dc;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Sections de contenu */
+    .content-section {
+      background: linear-gradient(to bottom, #1e3a5f, #0f1c2e);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+
+    .section-header {
+      background: linear-gradient(to right, #2a4d7f, #1a3056);
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #4a90e2;
+    }
+
+    .section-title {
+      color: #ffffff;
+      font-size: 24px;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .section-content {
+      padding: 24px;
+      color: #b8c7dc;
+      line-height: 1.6;
+    }
+
+    .section-content p {
+      margin: 0 0 16px 0;
+    }
+
+    .section-content h3 {
+      color: #ffffff;
+      font-size: 20px;
+      margin: 24px 0 16px 0;
+    }
+
+    .section-content ul, .section-content ol {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+
+    .section-content li {
+      margin-bottom: 8px;
+    }
+
+    /* Cartes */
+    .technique-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 30px 0;
+    }
+    
+    .technique-card {
+      background: linear-gradient(to bottom, #1e3a5f, #0f1c2e);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .technique-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    }
+    
+    .technique-card-image {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .technique-card-image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(to top, rgba(14, 28, 46, 0.9), transparent);
+    }
+    
+    .technique-card-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .technique-card-title {
+      color: #ffffff;
+      font-size: 20px;
+      margin: 0 0 12px 0;
+    }
+    
+    .technique-card-description {
+      color: #b8c7dc;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    
+    .technique-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+    
+    .technique-card-link {
+      color: #4a90e2;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s ease;
+    }
+    
+    .technique-card-link:hover {
+      color: #3a80d2;
+    }
+
+    /* Pied de page */
+    .site-footer {
+      background-color: #0f1c2e;
+      color: #b8c7dc;
+      padding: 40px 20px 20px;
+      margin-top: 60px;
+      border-top: 3px solid #2a4d7f;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-logo {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-logo img {
+      height: 50px;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo h3 {
+      color: #ffffff;
+      font-size: 20px;
+      margin: 0 0 8px 0;
+    }
+
+    .footer-logo p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      flex: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .footer-section h4 {
+      color: #ffffff;
+      font-size: 16px;
+      margin: 0 0 16px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-section li {
+      margin-bottom: 8px;
+    }
+
+    .footer-section a {
+      color: #b8c7dc;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-section a:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer-bottom p {
+      margin: 0 0 8px 0;
+    }
+
+    /* Support multilingue */
+    .lang-fr, .lang-en {
+      display: none;
+    }
+
+    body.lang-fr .lang-fr {
+      display: block;
+    }
+
+    body.lang-en .lang-en {
+      display: block;
+    }
+
+    /* Par défaut, afficher le français */
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body:not(.lang-en) .lang-fr {
+      display: block;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .mobile-nav.active {
+        display: block;
+      }
+      
+      .mobile-nav .nav-link {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .mobile-nav .nav-link i {
+        margin-right: 12px;
+        margin-bottom: 0;
+      }
+      
+      .page-title {
+        font-size: 28px;
+      }
+      
+      .page-description {
+        font-size: 16px;
+      }
+      
+      .header-meta {
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        gap: 30px;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 30px;
+      }
+      
+      .section-content {
+        padding: 16px;
+      }
+      
+      .technique-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation principale -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="index-fixed.html">
+          <img src="images/logo.png" alt="NHL 25 Pro Guide">
+          <span>NHL 25 Pro Guide</span>
+        </a>
+      </div>
+      
+      <div class="nav-links">
+        <a href="index-fixed.html" class="nav-link active">
+          <i class="fas fa-home"></i>
+          <span>Accueil</span>
+        </a>
+        <a href="#builds" class="nav-link">
+          <i class="fas fa-user-cog"></i>
+          <span>Builds Optimaux</span>
+        </a>
+        <a href="#positioning" class="nav-link">
+          <i class="fas fa-hockey-puck"></i>
+          <span>Positionnement</span>
+        </a>
+        <a href="#techniques" class="nav-link">
+          <i class="fas fa-bolt"></i>
+          <span>Techniques Avancées</span>
+        </a>
+        <a href="#coach" class="nav-link">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <span>Coach Corner</span>
+        </a>
+      </div>
+      
+      <div class="nav-actions">
+        <button class="lang-toggle">
+          <span class="current-lang">FR</span>
+          <i class="fas fa-globe"></i>
+        </button>
+        <button class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="mobile-nav">
+      <!-- Version mobile du menu, s'affiche lorsque le bouton hamburger est cliqué -->
+    </div>
+  </nav>
+  
+  <!-- En-tête de page -->
+  <header class="page-header">
+    <div class="header-content">
+      <h1 class="page-title">NHL 25 Pro Guide</h1>
+      <p class="page-description">Guide complet pour dominer en EASHL 6vs6 avec des stratégies avancées et des conseils d'experts.</p>
+    </div>
+    <div class="header-meta">
+      <div class="last-update">
+        <i class="fas fa-clock"></i>
+        <span>Dernière mise à jour: Avril 2025</span>
+      </div>
+    </div>
+  </header>
+  
+  <main class="container page-transition">
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Bienvenue sur NHL 25 Pro Guide</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>Bienvenue sur NHL 25 Pro Guide, votre ressource ultime pour maîtriser le mode EASHL 6vs6 dans NHL 25. Ce guide a été conçu spécifiquement pour les joueurs qui souhaitent améliorer leur jeu contre des adversaires humains, avec un focus particulier sur les stratégies d'équipe et les techniques avancées.</p>
+        
+        <p>Que vous soyez un joueur expérimenté cherchant à perfectionner vos compétences ou un nouveau venu dans le mode EASHL, vous trouverez ici des conseils précieux pour améliorer votre jeu et dominer la compétition.</p>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Sections du Guide</h2>
+      </div>
+      
+      <div class="section-content">
+        <div class="technique-grid">
+          <div class="technique-card" id="builds">
+            <div class="technique-card-image" style="background-image: url('images/builds.jpg');"></div>
+            <div class="technique-card-content">
+              <h3 class="technique-card-title">Builds Optimaux</h3>
+              <p class="technique-card-description">Découvrez les builds les plus efficaces pour chaque position, avec des recommandations détaillées sur les attributs, les capacités et les spécialités.</p>
+              <div class="technique-card-footer">
+                <a href="#builds" class="technique-card-link">
+                  Explorer <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="technique-card" id="positioning">
+            <div class="technique-card-image" style="background-image: url('images/positioning.jpg');"></div>
+            <div class="technique-card-content">
+              <h3 class="technique-card-title">Positionnement</h3>
+              <p class="technique-card-description">Apprenez les principes fondamentaux du positionnement pour chaque rôle, ainsi que les systèmes tactiques avancés comme Dog Fox Hawk.</p>
+              <div class="technique-card-footer">
+                <a href="#positioning" class="technique-card-link">
+                  Explorer <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="technique-card" id="techniques">
+            <div class="technique-card-image" style="background-image: url('images/techniques.jpg');"></div>
+            <div class="technique-card-content">
+              <h3 class="technique-card-title">Techniques Avancées</h3>
+              <p class="technique-card-description">Maîtrisez les mécaniques avancées comme L2/LT, les techniques de gliding, et les tirs spécialisés pour surpasser vos adversaires.</p>
+              <div class="technique-card-footer">
+                <a href="#techniques" class="technique-card-link">
+                  Explorer <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="technique-card" id="coach">
+            <div class="technique-card-image" style="background-image: url('images/coach.jpg');"></div>
+            <div class="technique-card-content">
+              <h3 class="technique-card-title">Coach Corner</h3>
+              <p class="technique-card-description">Consultez notre FAQ, évitez les erreurs communes, et découvrez des analyses vidéo détaillées pour améliorer votre compréhension du jeu.</p>
+              <div class="technique-card-footer">
+                <a href="#coach" class="technique-card-link">
+                  Explorer <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Nouveautés</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>Nous avons récemment mis à jour notre guide avec de nouvelles sections et améliorations :</p>
+        
+        <ul>
+          <li><strong>Mécaniques L2/LT Avancées</strong> - Une analyse approfondie frame par frame des techniques de protection de rondelle et de contrôle de vision.</li>
+          <li><strong>Techniques de Gliding</strong> - Un guide complet sur quand utiliser le gliding versus le sprint pour optimiser vos déplacements.</li>
+          <li><strong>Diagrammes Interactifs</strong> - Des visualisations améliorées pour le système Dog Fox Hawk avec animations et explications détaillées.</li>
+          <li><strong>Builds Optimisés</strong> - Mise à jour des builds recommandés en fonction des derniers patches et méta-jeu.</li>
+        </ul>
+        
+        <p>Explorez ces nouvelles sections pour améliorer votre jeu et dominer la compétition en EASHL 6vs6 !</p>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Pied de page -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="NHL 25 Pro Guide">
+        <h3>NHL 25 Pro Guide</h3>
+        <p>Guide complet pour dominer en EASHL 6v6</p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-section">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index-fixed.html">Accueil</a></li>
+            <li><a href="#builds">Builds Optimaux</a></li>
+            <li><a href="#positioning">Positionnement</a></li>
+            <li><a href="#techniques">Techniques Avancées</a></li>
+            <li><a href="#coach">Coach Corner</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Ressources</h4>
+          <ul>
+            <li><a href="#videos">Vidéos d'analyse</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#glossary">Glossaire</a></li>
+            <li><a href="#updates">Mises à jour</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Communauté</h4>
+          <ul>
+            <li><a href="#discord">Discord</a></li>
+            <li><a href="#twitter">Twitter</a></li>
+            <li><a href="#youtube">YouTube</a></li>
+            <li><a href="#twitch">Twitch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 NHL 25 Pro Guide. Tous droits réservés.</p>
+      <p>Ce site n'est pas affilié à EA Sports ou à la LNH.</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Script intégré pour éviter les problèmes de chargement
+    document.addEventListener('DOMContentLoaded', function() {
+      // Gérer le menu mobile
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      
+      if (mobileMenuToggle && mobileNav) {
+        // Créer le contenu du menu mobile
+        const navLinks = document.querySelector('.nav-links').innerHTML;
+        mobileNav.innerHTML = navLinks;
+        
+        mobileMenuToggle.addEventListener('click', function() {
+          mobileNav.classList.toggle('active');
+        });
+      }
+      
+      // Gérer le changement de langue
+      const langToggle = document.querySelector('.lang-toggle');
+      if (langToggle) {
+        langToggle.addEventListener('click', function() {
+          const currentLang = document.querySelector('.current-lang').textContent;
+          document.querySelector('.current-lang').textContent = currentLang === 'FR' ? 'EN' : 'FR';
+          
+          // Basculer entre les classes de langue
+          document.body.classList.toggle('lang-fr');
+          document.body.classList.toggle('lang-en');
+          
+          // Basculer la visibilité des éléments de langue
+          document.querySelectorAll('.lang-fr, .lang-en').forEach(el => {
+            el.style.display = el.style.display === 'none' ? 'block' : 'none';
+          });
+        });
+      }
+      
+      // Définir le français comme langue par défaut
+      document.body.classList.add('lang-fr');
+    });
+  </script>
+</body>
+</html>

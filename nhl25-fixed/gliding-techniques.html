@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NHL 25 Pro Guide - Techniques de Gliding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Styles spécifiques pour la page des techniques de gliding */
+    .technique-card {
+      background: linear-gradient(to bottom, #1e3a5f, #0f1c2e);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      margin-bottom: 24px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .technique-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    }
+    
+    .technique-header {
+      background: linear-gradient(to right, #2a4d7f, #1a3056);
+      padding: 16px 20px;
+      border-bottom: 2px solid #4a90e2;
+    }
+    
+    .technique-title {
+      color: #ffffff;
+      font-size: 22px;
+      margin: 0 0 8px 0;
+    }
+    
+    .technique-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .difficulty-tag {
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 14px;
+      color: white;
+    }
+    
+    .difficulty-beginner {
+      background-color: #2ecc71;
+    }
+    
+    .difficulty-intermediate {
+      background-color: #f39c12;
+    }
+    
+    .difficulty-advanced {
+      background-color: #e74c3c;
+    }
+    
+    .technique-content {
+      padding: 20px;
+    }
+    
+    .technique-description {
+      color: #b8c7dc;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .technique-video {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    
+    .technique-video img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .technique-steps {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .technique-steps h4 {
+      color: #ffffff;
+      font-size: 18px;
+      margin: 0 0 16px 0;
+    }
+    
+    .technique-steps ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+    
+    .technique-steps li {
+      color: #b8c7dc;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .comparison-table th {
+      background-color: #2a4d7f;
+      color: #ffffff;
+      text-align: left;
+      padding: 12px 16px;
+    }
+    
+    .comparison-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: #b8c7dc;
+    }
+    
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .comparison-table tr:hover td {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    
+    .pro-tip {
+      background-color: rgba(46, 204, 113, 0.1);
+      border-left: 4px solid #2ecc71;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .pro-tip h4 {
+      color: #2ecc71;
+      font-size: 18px;
+      margin: 0 0 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .pro-tip h4 i {
+      font-size: 20px;
+    }
+    
+    .pro-tip p {
+      color: #b8c7dc;
+      margin: 0;
+      line-height: 1.6;
+    }
+    
+    .situation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    
+    .situation-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .situation-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .situation-card h4 {
+      color: #ffffff;
+      font-size: 18px;
+      margin: 0 0 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .situation-card h4 i {
+      color: #4a90e2;
+    }
+    
+    .situation-card p {
+      color: #b8c7dc;
+      margin: 0;
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+      .situation-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation principale -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo.png" alt="NHL 25 Pro Guide">
+          <span>NHL 25 Pro Guide</span>
+        </a>
+      </div>
+      
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-home"></i>
+          <span>Accueil</span>
+        </a>
+        <a href="builds.html" class="nav-link">
+          <i class="fas fa-user-cog"></i>
+          <span>Builds Optimaux</span>
+        </a>
+        <a href="positioning.html" class="nav-link">
+          <i class="fas fa-hockey-puck"></i>
+          <span>Positionnement</span>
+        </a>
+        <a href="techniques.html" class="nav-link active">
+          <i class="fas fa-bolt"></i>
+          <span>Techniques Avancées</span>
+        </a>
+        <a href="coach.html" class="nav-link">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <span>Coach Corner</span>
+        </a>
+      </div>
+      
+      <div class="nav-actions">
+        <button class="lang-toggle">
+          <span class="current-lang">FR</span>
+          <i class="fas fa-globe"></i>
+        </button>
+        <button class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- En-tête de page -->
+  <header class="page-header">
+    <div class="header-content">
+      <h1 class="page-title">Techniques de Gliding</h1>
+      <p class="page-description">Maîtrisez l'art du gliding pour optimiser vos déplacements sur la glace et gagner un avantage stratégique sur vos adversaires.</p>
+    </div>
+    <div class="header-meta">
+      <div class="last-update">
+        <i class="fas fa-clock"></i>
+        <span>Dernière mise à jour: Avril 2025</span>
+      </div>
+    </div>
+  </header>
+  
+  <main class="container page-transition">
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Introduction au Gliding</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>Le <strong>gliding</strong> (ou glisse) est une technique de déplacement essentielle dans NHL 25 qui permet aux joueurs de conserver leur élan tout en maintenant un contrôle optimal. Contrairement au sprint (R2/RT), le gliding n'utilise pas d'endurance et permet une meilleure maniabilité, ce qui en fait un outil indispensable dans de nombreuses situations de jeu.</p>
+        
+        <p>Maîtriser l'équilibre entre gliding et sprint est l'une des compétences qui distinguent les joueurs élites des joueurs moyens en EASHL 6vs6. Cette section vous expliquera quand et comment utiliser le gliding de manière optimale pour améliorer votre jeu.</p>
+        
+        <div class="pro-tip">
+          <h4><i class="fas fa-lightbulb"></i> Conseil Pro</h4>
+          <p>Le gliding n'est pas seulement une alternative au sprint - c'est un outil stratégique qui, lorsqu'il est utilisé correctement, peut créer des opportunités offensives et améliorer votre positionnement défensif. Les meilleurs joueurs alternent constamment entre sprint et gliding pour maximiser leur efficacité sur la glace.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Gliding vs Sprint : Analyse Comparative</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>Pour comprendre quand utiliser le gliding versus le sprint, il est important de connaître les avantages et inconvénients de chaque technique :</p>
+        
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Gliding</th>
+              <th>Sprint (R2/RT)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Vitesse</td>
+              <td>Moyenne (maintient l'élan)</td>
+              <td>Maximale (accélération rapide)</td>
+            </tr>
+            <tr>
+              <td>Endurance</td>
+              <td>Aucune consommation</td>
+              <td>Consommation élevée</td>
+            </tr>
+            <tr>
+              <td>Maniabilité</td>
+              <td>Excellente (virages serrés)</td>
+              <td>Limitée (grand rayon de braquage)</td>
+            </tr>
+            <tr>
+              <td>Contrôle de rondelle</td>
+              <td>Optimal</td>
+              <td>Réduit (risque de perte)</td>
+            </tr>
+            <tr>
+              <td>Précision des tirs</td>
+              <td>Élevée</td>
+              <td>Réduite</td>
+            </tr>
+            <tr>
+              <td>Précision des passes</td>
+              <td>Élevée</td>
+              <td>Réduite</td>
+            </tr>
+            <tr>
+              <td>Capacité défensive</td>
+              <td>Meilleure réactivité</td>
+              <td>Vulnérabilité aux feintes</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <p>Cette comparaison montre clairement que le gliding et le sprint ont chacun leur place dans votre arsenal technique. La clé est de savoir quand utiliser l'un ou l'autre pour maximiser votre efficacité sur la glace.</p>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Techniques de Gliding Essentielles</h2>
+      </div>
+      
+      <div class="section-content">
+        <div class="technique-card">
+          <div class="technique-header">
+            <h3 class="technique-title">Gliding de Base</h3>
+            <div class="technique-meta">
+              <span class="difficulty-tag difficulty-beginner">Débutant</span>
+            </div>
+          </div>
+          
+          <div class="technique-content">
+            <div class="technique-description">
+              <p>Le gliding de base consiste simplement à relâcher le bouton de sprint (R2/RT) tout en maintenant une direction avec le stick analogique gauche. Cette technique fondamentale est la base de tous les mouvements avancés.</p>
+            </div>
+            
+            <div class="technique-steps">
+              <h4>Comment l'exécuter :</h4>
+              <ol>
+                <li>Commencez à patiner en utilisant le stick analogique gauche</li>
+                <li>Relâchez complètement le bouton R2/RT</li>
+                <li>Continuez à diriger votre joueur avec le stick analogique gauche</li>
+                <li>Observez comment votre joueur glisse tout en maintenant une bonne partie de son élan</li>
+              </ol>
+            </div>
+            
+            <div class="pro-tip">
+              <h4><i class="fas fa-lightbulb"></i> Conseil Pro</h4>
+              <p>Pratiquez le passage fluide entre sprint et gliding en ligne droite, puis en effectuant des virages de plus en plus serrés. Cet exercice de base vous aidera à développer le "feeling" nécessaire pour savoir quand relâcher R2/RT.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <div class="technique-header">
+            <h3 class="technique-title">Gliding Directionnel</h3>
+            <div class="technique-meta">
+              <span class="difficulty-tag difficulty-intermediate">Intermédiaire</span>
+            </div>
+          </div>
+          
+          <div class="technique-content">
+            <div class="technique-description">
+              <p>Le gliding directionnel consiste à utiliser le gliding pour effectuer des changements de direction rapides et précis. Cette technique est particulièrement efficace pour créer de l'espace en zone offensive ou pour suivre un attaquant en défense.</p>
+            </div>
+            
+            <div class="technique-steps">
+              <h4>Comment l'exécuter :</h4>
+              <ol>
+                <li>Sprintez dans une direction avec R2/RT</li>
+                <li>Relâchez R2/RT pour entrer en gliding</li>
+                <li>Pendant le gliding, changez rapidement la direction du stick analogique gauche</li>
+                <li>Réappuyez sur R2/RT pour accélérer dans la nouvelle direction si nécessaire</li>
+              </ol>
+            </div>
+            
+            <div class="pro-tip">
+              <h4><i class="fas fa-lightbulb"></i> Conseil Pro</h4>
+              <p>Le timing est crucial pour le gliding directionnel. Relâchez R2/RT environ 0.5 seconde avant de vouloir changer de direction pour obtenir le virage le plus serré possible.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <div class="technique-header">
+            <h3 class="technique-title">Gliding avec L2/LT (Vision Control)</h3>
+            <div class="technique-meta">
+              <span class="difficulty-tag difficulty-advanced">Avancé</span>
+            </div>
+          </div>
+          
+          <div class="technique-content">
+            <div class="technique-description">
+              <p>Cette technique avancée combine le gliding avec le bouton L2/LT (Vision Control) pour créer des mouvements imprévisibles et maintenir un contrôle optimal de la rondelle. C'est l'une des techniques les plus puissantes utilisées par les joueurs d'élite.</p>
+            </div>
+            
+            <div class="technique-steps">
+              <h4>Comment l'exécuter :</h4>
+              <ol>
+                <li>Entrez en gliding en relâchant R2/RT</li>
+                <li>Appuyez sur L2/LT tout en maintenant une direction avec le stick analogique gauche</li>
+                <li>Utilisez le stick analogique droit pour orienter votre corps et protéger la rondelle</li>
+                <li>Relâchez L2/LT et appuyez sur R2/RT pour sortir rapidement de cette position</li>
+              </ol>
+            </div>
+            
+            <div class="pro-tip">
+              <h4><i class="fas fa-lightbulb"></i> Conseil Pro</h4>
+              <p>Cette technique est particulièrement efficace lorsqu'elle est utilisée de manière intermittente et imprévisible. Évitez de maintenir L2/LT trop longtemps car cela vous rend vulnérable aux mises en échec.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Situations de Jeu : Quand Utiliser le Gliding vs Sprint</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>Savoir quand utiliser le gliding versus le sprint est essentiel pour maximiser votre efficacité sur la glace. Voici les situations spécifiques où chaque technique est optimale :</p>
+        
+        <div class="situation-grid">
+          <div class="situation-card">
+            <h4><i class="fas fa-check-circle"></i> Utilisez le Gliding</h4>
+            <p><strong>En zone offensive sans rondelle</strong> pour vous positionner, créer des lignes de passe et être prêt à recevoir une passe pour un one-timer.</p>
+          </div>
+          
+          <div class="situation-card">
+            <h4><i class="fas fa-times-circle"></i> Utilisez le Sprint</h4>
+            <p><strong>Lors des contre-attaques</strong> pour maximiser votre vitesse et créer un avantage numérique en transition rapide.</p>
+          </div>
+          
+          <div class="situation-card">
+            <h4><i class="fas fa-check-circle"></i> Utilisez le Gliding</h4>
+            <p><strong>Avant de tirer</strong> pour augmenter significativement la précision et la puissance de vos tirs, particulièrement pour les one-timers.</p>
+          </div>
+          
+          <div class="situation-card">
+            <h4><i class="fas fa-times-circle"></i> Utilisez le Sprint</h4>
+            <p><strong>Pour rattraper un adversaire</strong> qui a pris de l'avance sur vous en défense ou pour couvrir rapidement une zone découverte.</p>
+          </div>
+          
+          <div class="situation-card">
+            <h4><i class="fas fa-check-circle"></i> Utilisez le Gliding</h4>
+            <p><strong>Dans les virages serrés</strong> pour maintenir un bon contrôle et éviter de perdre trop de vitesse dans les changements de direction.</p>
+          </div>
+          
+          <div class="situation-card">
+            <h4><i class="fas fa-times-circle"></i> Utilisez le Sprint</h4>
+            <p><strong>Pour les courses en ligne droite</strong> lorsque vous avez besoin d'atteindre votre vitesse maximale sur une longue distance.</p>
+          </div>
+          
+          <div class="situation-card">
+            <h4><i class="fas fa-check-circle"></i> Utilisez le Gliding</h4>
+            <p><strong>En défense lors du gap control</strong> pour maintenir une bonne position et réagir rapidement aux mouvements de l'attaquant.</p>
+          </div>
+          
+          <div class="situation-card">
+            <h4><i class="fas fa-times-circle"></i> Utilisez le Sprint</h4>
+            <p><strong>Pour appliquer un forecheck agressif</strong> et mettre rapidement la pression sur les défenseurs adverses.</p>
+          </div>
+          
+          <div class="situation-card">
+            <h4><i class="fas fa-check-circle"></i> Utilisez le Gliding</h4>
+            <p><strong>Juste avant de recevoir une passe</strong> pour être en position optimale et avoir un meilleur contrôle à la réception.</p>
+          </div>
+          
+          <div class="situation-card">
+            <h4><i class="fas fa-times-circle"></i> Utilisez le Sprint</h4>
+            <p><strong>Pour les entrées en zone offensive</strong> lorsque vous avez de l'espace devant vous et que vous voulez forcer les défenseurs à reculer.</p>
+          </div>
+        </div>
+        
+        <div class="pro-tip">
+          <h4><i class="fas fa-lightbulb"></i> Conseil Pro</h4>
+          <p>Les meilleurs joueurs de NHL 25 alternent constamment entre gliding et sprint, parfois plusieurs fois en quelques secondes. Cette alternance rend vos mouvements imprévisibles et vous permet de maximiser à la fois votre vitesse et votre contrôle selon les besoins du moment.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Exercices d'Entraînement pour le Gliding</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>Pour maîtriser les techniques de gliding, voici quelques exercices d'entraînement que vous pouvez pratiquer en mode Entraînement Libre :</p>
+        
+        <div class="technique-card">
+          <div class="technique-header">
+            <h3 class="technique-title">Exercice 1 : Slalom</h3>
+          </div>
+          
+          <div class="technique-content">
+            <div class="technique-description">
+              <p>Cet exercice vous aide à maîtriser les transitions entre sprint et gliding dans les virages.</p>
+            </div>
+            
+            <div class="technique-steps">
+              <h4>Instructions :</h4>
+              <ol>
+                <li>Placez des cônes (ou imaginez-les) en zigzag sur la glace</li>
+                <li>Sprintez vers le premier cône</li>
+                <li>Relâchez R2/RT pour entrer en gliding juste avant d'atteindre le cône</li>
+                <li>Effectuez votre virage en gliding</li>
+                <li>Réappuyez sur R2/RT pour sprinter vers le prochain cône</li>
+                <li>Répétez pour tous les cônes</li>
+              </ol>
+            </div>
+            
+            <p>Objectif : Réduire progressivement le temps nécessaire pour compléter le parcours tout en maintenant un contrôle précis.</p>
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <div class="technique-header">
+            <h3 class="technique-title">Exercice 2 : Cercles de Gliding</h3>
+          </div>
+          
+          <div class="technique-content">
+            <div class="technique-description">
+              <p>Cet exercice améliore votre contrôle en gliding et votre capacité à maintenir une trajectoire précise.</p>
+            </div>
+            
+            <div class="technique-steps">
+              <h4>Instructions :</h4>
+              <ol>
+                <li>Utilisez les cercles de mise en jeu sur la patinoire</li>
+                <li>Entrez en gliding et essayez de suivre parfaitement le contour du cercle</li>
+                <li>Maintenez une vitesse constante sans utiliser R2/RT</li>
+                <li>Faites 3 tours dans le sens horaire, puis 3 tours dans le sens antihoraire</li>
+                <li>Essayez ensuite de faire un "8" en utilisant deux cercles adjacents</li>
+              </ol>
+            </div>
+            
+            <p>Objectif : Maintenir une trajectoire parfaite sur le cercle sans dévier vers l'intérieur ou l'extérieur.</p>
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <div class="technique-header">
+            <h3 class="technique-title">Exercice 3 : Transitions L2/LT</h3>
+          </div>
+          
+          <div class="technique-content">
+            <div class="technique-description">
+              <p>Cet exercice avancé vous aide à maîtriser les transitions entre gliding normal et gliding avec L2/LT.</p>
+            </div>
+            
+            <div class="technique-steps">
+              <h4>Instructions :</h4>
+              <ol>
+                <li>Patinez en ligne droite en sprint</li>
+                <li>Relâchez R2/RT pour entrer en gliding</li>
+                <li>Appuyez sur L2/LT pendant 1 seconde</li>
+                <li>Relâchez L2/LT et continuez en gliding normal</li>
+                <li>Réappuyez sur R2/RT pour sprinter</li>
+                <li>Répétez cette séquence en essayant de maintenir une ligne droite</li>
+              </ol>
+            </div>
+            
+            <p>Objectif : Effectuer des transitions fluides entre les différents modes de déplacement tout en maintenant le contrôle et la direction.</p>
+          </div>
+        </div>
+        
+        <div class="pro-tip">
+          <h4><i class="fas fa-lightbulb"></i> Conseil Pro</h4>
+          <p>Consacrez 10-15 minutes à ces exercices avant chaque session de jeu pour développer votre mémoire musculaire. La maîtrise du gliding vient avec la pratique régulière et consciente.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Erreurs Communes à Éviter</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>Même les joueurs expérimentés commettent ces erreurs courantes liées au gliding :</p>
+        
+        <ul>
+          <li><strong>Sursprintage</strong> : Utiliser R2/RT constamment, ce qui épuise votre endurance et réduit votre contrôle. Solution : Forcez-vous à utiliser le gliding dans les zones offensives et défensives.</li>
+          <li><strong>Gliding excessif</strong> : Ne jamais sprinter, ce qui vous rend trop lent et prévisible. Solution : Utilisez le sprint pour les lignes droites et les situations qui nécessitent une vitesse maximale.</li>
+          <li><strong>Transitions abruptes</strong> : Passer du sprint au gliding de manière saccadée. Solution : Pratiquez des transitions plus fluides avec les exercices mentionnés précédemment.</li>
+          <li><strong>Abus de L2/LT</strong> : Surutiliser le bouton L2/LT pendant le gliding, ce qui vous rend vulnérable. Solution : Utilisez L2/LT de manière stratégique et momentanée, pas constamment.</li>
+          <li><strong>Mauvais timing</strong> : Entrer en gliding trop tôt ou trop tard avant un virage. Solution : Relâchez R2/RT environ 0.5 seconde avant d'amorcer votre virage.</li>
+        </ul>
+        
+        <div class="pro-tip">
+          <h4><i class="fas fa-lightbulb"></i> Conseil Pro</h4>
+          <p>Enregistrez et analysez vos matchs pour identifier vos habitudes de gliding et de sprint. Cherchez les moments où vous perdez le contrôle ou manquez de vitesse, et ajustez votre utilisation en conséquence.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Conclusion</h2>
+      </div>
+      
+      <div class="section-content">
+        <p>La maîtrise du gliding est l'une des compétences fondamentales qui séparent les joueurs élites des joueurs moyens dans NHL 25. En comprenant quand utiliser le gliding versus le sprint, vous améliorerez considérablement votre mobilité, votre contrôle et votre efficacité globale sur la glace.</p>
+        
+        <p>Rappelez-vous que le gliding n'est pas simplement l'absence de sprint - c'est une technique active qui, lorsqu'elle est utilisée correctement, vous donne un avantage significatif dans de nombreuses situations de jeu. Comme pour toute compétence avancée, la pratique régulière est la clé de la maîtrise.</p>
+        
+        <p>Intégrez les exercices d'entraînement à votre routine et soyez conscient de votre utilisation du gliding pendant les matchs. Avec le temps, les transitions entre sprint et gliding deviendront naturelles et instinctives, vous permettant de vous concentrer sur les aspects stratégiques du jeu.</p>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Pied de page -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="NHL 25 Pro Guide">
+        <h3>NHL 25 Pro Guide</h3>
+        <p>Guide complet pour dominer en EASHL 6v6</p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-section">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="builds.html">Builds Optimaux</a></li>
+            <li><a href="positioning.html">Positionnement</a></li>
+            <li><a href="techniques.html">Techniques Avancées</a></li>
+            <li><a href="coach.html">Coach Corner</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Ressources</h4>
+          <ul>
+            <li><a href="#">Vidéos d'analyse</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Glossaire</a></li>
+            <li><a href="#">Mises à jour</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Communauté</h4>
+          <ul>
+            <li><a href="#">Discord</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">Twitch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 NHL 25 Pro Guide. Tous droits réservés.</p>
+      <p>Ce site n'est pas affilié à EA Sports ou à la LNH.</p>
+    </div>
+  </footer>
+  
+  <script src="js/script.js"></script>
+</body>
+</html>
